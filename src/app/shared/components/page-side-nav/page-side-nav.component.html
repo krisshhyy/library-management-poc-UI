@@ -1,0 +1,15 @@
+<mat-card>
+    <mat-card-content>
+        <h1>{{panelName}}</h1>
+    </mat-card-content>
+</mat-card>
+
+<mat-nav-list>
+    @for (item of navItems; track navItems){
+        <a mat-list-item routerLink="/{{item.link}}" routerLinkActive="active-link">
+            {{item.value}}
+        </a>
+    }
+    <!-- <a mat-list-item routerLink="/item1" routerLinkActive="active-link">Item 1</a>
+    <a mat-list-item routerLink="/item2" routerLinkActive="active-link">Item 2</a> -->
+</mat-nav-list>
