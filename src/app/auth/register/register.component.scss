@@ -1,28 +1,62 @@
-:host{
+@import "../../../theme.scss";
+
+:host {
     display: flex;
     justify-content: space-between;
-    border: 1px solid white;
     height: 100%;
     width: 90%;
-}
-
-.library-info{
-    width: 400px;
-    border-left: 1px solid white;
-    padding: 1rem;
-
-    mat-list-item{
-        height: auto;
-        p{
-            white-space: normal;
-            font-size: 1.2rem;
-            font-style: italic;
-            text-align: justify;
-        }
-    }
-}
-
-.register-form{
+  }
+  
+  .register-form {
     width: 600px;
-    border: 1px solid white;
-}
+  
+    mat-card {
+      mat-card-header {
+        display: flex;
+        justify-content: center;
+  
+        mat-card-title {
+          font-size: 2rem;
+          color: $dark-accent-A200;
+        }
+      }
+      mat-grid-tile {
+        mat-form-field {
+          width: 100%;
+          color: accent;
+        }
+      }
+  
+      mat-card-actions {
+        button {
+          margin: auto;
+          width: 90%;
+        }
+        h4 {
+            margin: auto;
+            width: 40%;
+        }
+        a{
+            margin: auto;
+          width: 40%;
+        }
+      }
+    }
+  }
+  
+  .library-info {
+    width: 400px;
+    padding: 1rem;
+    border-left: 1px solid white;
+  
+    mat-list-item {
+      height: auto;
+  
+      p {
+        font-size: 1.2rem;
+        font-style: italic;
+        text-align: justify;
+        white-space: normal;
+      }
+    }
+  }
