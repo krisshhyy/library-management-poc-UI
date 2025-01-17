@@ -7,6 +7,7 @@ import { PageSideNavComponent } from './components/page-side-nav/page-side-nav.c
 import { RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -21,7 +22,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     MaterialModule,
     RouterModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   exports: [
     CommonModule,
@@ -31,7 +33,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     PageSideNavComponent,
     RouterModule,
     PageNotFoundComponent,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ]
 })
 export class SharedModule { }
