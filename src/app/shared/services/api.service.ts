@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -11,6 +11,17 @@ export class ApiService {
   register(user:any){
     return this.http.post(this.baseURL+'Register',user,{
       responseType: 'text',
+    });
+  }
+
+  login(info:any){
+    let params = new HttpParams()
+    .append('email',info.email)
+    .append('password',info.password);
+
+    return this.http.get(this.baseURL + 'Login',{
+      params: params,
+      responseType: 'text'
     });
   }
 }
