@@ -27,7 +27,14 @@ export class LoginComponent {
 
     this.apiService.login(loginInfo).subscribe({
       next: res => {
-        console.log(res);
+        // console.log(res);
+        if(res == 'Not Found !') this.snackBar.open('Credentials are INVALID !', 'OK', {duration: 2000});
+        else if(res == 'Unapproved') this.snackBar.open('Your account is not yet approved by ADMIN', 'OK', {duration: 2000});
+        else {
+          this.snackBar.open('Login Successful', 'OK', {duration: 2000});
+          localStorage.setItem('access_token',res);
+          this.apiService.userStatus.next('loggedIn');
+        }
       }
     })
   }
