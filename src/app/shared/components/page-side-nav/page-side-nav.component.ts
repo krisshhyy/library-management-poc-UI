@@ -48,7 +48,8 @@ export class PageSideNavComponent {
           }
         }
         else if(status == 'loggedOff'){
-          router.navigateByUrl('/home');
+          this.panelName = 'Auth Panel';
+          router.navigateByUrl('/login');
           this.navItems = [];
         }
       }

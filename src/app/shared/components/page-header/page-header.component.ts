@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'page-header',
@@ -7,4 +8,26 @@ import { Component } from '@angular/core';
 })
 export class PageHeaderComponent {
 
+  loggedIn: boolean = false;
+  name: string = '';
+
+  constructor(private apiService: ApiService) {
+    apiService.userStatus.subscribe({
+      next: (res) => {
+        if(res == 'loggedIn'){
+          this.loggedIn = true;
+          let user = this.apiService.getUserInfo()!;
+          this.name = `${user.firstName} ${user.lastName}`;
+        }
+        else{
+          this.loggedIn = false;
+          this.name = '';
+        }
+      }
+    })
+  }
+
+  logout() {
+    this.apiService.logOut();
+  }
 }

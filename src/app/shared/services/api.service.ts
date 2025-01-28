@@ -51,4 +51,9 @@ export class ApiService {
     };
     return user;
   }
+
+  logOut(){
+    localStorage.removeItem('access_token');
+    this.userStatus.next('loggedOff');
+  }
 }

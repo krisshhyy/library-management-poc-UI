@@ -3,9 +3,11 @@
     <span class="spacer"></span>
 
     <div class="user-info">
-        <div class="name">Hi, Nandi</div>
+        @if (loggedIn) {
+            <div class="name">Hi, {{name}}</div>
+        }
         <button mat-raised-button color="accent">Profile</button>
-        <button mat-raised-button color="warn">LogOut</button>
+        <button mat-raised-button color="warn" (click)="logout()">LogOut</button>
 
     </div>
 </mat-toolbar>
