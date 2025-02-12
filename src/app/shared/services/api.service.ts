@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Subject } from 'rxjs';
 import { User, UserType } from '../../models/models';
+import { Book } from '../../models/models';
 
 @Injectable({
   providedIn: 'root'
@@ -55,5 +56,9 @@ export class ApiService {
   logOut(){
     localStorage.removeItem('access_token');
     this.userStatus.next('loggedOff');
+  }
+
+  getBooks(){
+    return this.http.get<Book[]>(this.baseURL+'GetBooks');
   }
 }
